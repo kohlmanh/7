@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kohlman Harshbarger CV</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: 'Courier New', monospace;
+            color: black;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+            font-size: 2em;
+            color: black;
+        }
+
+        .header a {
+            color: blue;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            display: none;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: white;
+            font-size: 1.1em;
+            color: blue;
+            border: 2px solid blue;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        #bouncing-container {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .bouncing-image {
+            position: absolute;
+            width: 200px; /* Base image size */
+            height: auto;
+            transition: transform 1.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header section with name and dropdown arrow -->
+    <div class="header">
+        <span>Kohlman Harshbarger</span> 
+        (<a id="toggle-cv" href="#">▼</a>)
+    </div>
+
+    <!-- Hidden CV section that will be displayed on click -->
+    <div id="cv" class="dropdown">
+        <p><b>B. 1993 Boston, MA. Lives and works in New York City</b></p>
+        
+        <p><b>SELECTED SOLO GALLERY SHOWS:</b><br>
+        2024 “Cute Kills”, Preachers Valley, NYC</p>
+
+        <p><b>SELECTED GROUP SHOWS:</b><br>
+        2024 “Show of Stolen Goods”, U-Haul Gallery, New York<br>
+        2024 “SPIT II”, Preachers Valley, New York<br>
+        2023 "RATHAUS", 328 E 14th, New York<br>
+        2023 “Nothing But Trouble”, All Street, New York<br>
+        2023 “Prix Fixe”, Underland Gallery, Brooklyn<br>
+        2023 “SPIT”, Preachers Valley, New York<br>
+        2023 “The Patriot”, O'Flaherty's, New York<br>
+        2023 “Hot Dog: A Group Show”, Triggering DJ, Brooklyn<br>
+        2022 "For the Trees", New York Arts Association, Brooklyn<br>
+        2021 "Annual Auction", Bailey House x Artsy, Online<br>
+        2020 "Annual Auction", Flux Factory x Artsy, Online<br>
+        2018 "Transient Space", Design Manchester Festival<br>
+        2017 "Holiday Market", Museum Quality Gallery, Brooklyn</p>
+
+        <p><b>PRESS:</b><br>
+        <a href="https://news.artnet.com/art-world/uhaul-gallery-stolen-from-work-2546344" target="_blank">https://news.artnet.com/art-world/uhaul-gallery-stolen-from-work-2546344</a>
+        </p>
+    </div>
+
+    <!-- Bouncing images container -->
+    <div id="bouncing-container">
+        <img src="https://i.ibb.co/kgDLfyX/Screenshot-2023-09-26-at-9-30-52-PM.png" class="bouncing-image" />
+        <img src="https://i.ibb.co/zFQPkFY/Screenshot-2023-09-29-at-5-17-12-PM.png" class="bouncing-image" />
+        <img src="https://i.ibb.co/Kw5NJ0p/DSC0514-2.jpg" class="bouncing-image" />
+        <img src="https://i.ibb.co/L1dS1mP/Screenshot-2023-09-29-at-6-18-14-PM.png" class="bouncing-image" />
+        <img src="https://i.ibb.co/dJ8ymPn/Screenshot-2023-10-17-at-10-41-27-PM.png" class="bouncing-image" />
+        <img src="https://i.ibb.co/7SNF8Qm/Screenshot-2023-12-10-at-1-29-51-PM.png" class="bouncing-image" />
+        <img src="https://i.ibb.co/DCM1w7d/Screenshot-2024-02-23-at-9-00-24-AM.png" class="bouncing-image" />
+        <img src="https://i.ibb.co/72xsWLh/Screenshot-2024-03-18-at-4-40-00-PM.png" class="bouncing-image" />
+        <img src="https://i.ibb.co/M15thXC/Screenshot-2024-03-25-at-11-19-57-PM.png" class="bouncing-image" />
+        <img src="https://i.ibb.co/VQcLTy4/Screenshot-2024-04-08-at-11-05-51-PM.png" class="bouncing-image" />
+        <img src="https://i.ibb.co/dp98DdC/Screenshot-2024-04-13-at-10-55-30-PM.png" class="bouncing-image" />
+        <img src="https://i.ibb.co/vkGscPG/Screenshot-2024-09-07-at-1-26-19-PM.png" class="bouncing-image" />
+        <img src="https://i.ibb.co/QcKv1Xd/Screenshot-2024-09-29-at-12-53-34-PM.png" class="bouncing-image" />
+        <img src="https://i.ibb.co/sPYkgcv/strathcona-park-glory-hole-vancouver-jpeg-w-960-h-640-bgcolor-000000.jpg" class="bouncing-image" />
+    </div>
+
+    <script>
+        // JavaScript to toggle CV display
+        const toggleCv = document.getElementById('toggle-cv');
+        const cv = document.getElementById('cv');
+
+        toggleCv.addEventListener('click', function(e) {
+            e.preventDefault();
+            cv.style.display = cv.style.display === 'none' || cv.style.display === '' ? 'block' : 'none';
+            toggleCv.innerHTML = cv.style.display === 'block' ? '▲' : '▼';
+        });
+
+        const images = document.querySelectorAll('.bouncing-image');
+        let imageData = Array.from(images).map(img => ({
+            element: img,
+            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight,
+            dx: (Math.random() - 0.5) * 4,
+            dy: (Math.random() - 0.5) * 4,
+            scale: Math.random() * 2 + 0.3,
+            inverted: false  // Track inversion state
+        }));
+
+        function detectCollision(img1, img2) {
+            const rect1 = img1.element.getBoundingClientRect();
+            const rect2 = img2.element.getBoundingClientRect();
+            return !(
+                rect1.right < rect2.left ||
+                rect1.left > rect2.right ||
+                rect1.bottom < rect2.top ||
+                rect1.top > rect2.bottom
+            );
+        }
+
+        function animate() {
+            imageData.forEach(imgData => {
+                let { element, x, y, dx, dy, scale, inverted } = imgData;
+
+                // Update position
+                x += dx;
+                y += dy;
+
+                // Boundary collision detection
+                if (x <= 0 || x + element.width * scale >= window.innerWidth) imgData.dx = -dx;
+                if (y <= 0 || y + element.height * scale >= window.innerHeight) imgData.dy = -dy;
+
+                // Randomly change scale
+                scale += (Math.random() - 0.5) * 0.05;
+                imgData.scale = Math.max(0.3, Math.min(3, scale));
+
+                // Check for overlap with other images (without bouncing)
+                imageData.forEach(otherImgData => {
+                    if (imgData !== otherImgData && detectCollision(imgData, otherImgData)) {
+                        // Toggle inversion on overlap
+                        imgData.inverted = !imgData.inverted;
+                        otherImgData.inverted = !otherImgData.inverted;
+
+                        // Apply or remove color inversion
+                        element.style.filter = imgData.inverted ? 'invert(1)' : 'invert(0)';
+                        otherImgData.element.style.filter = otherImgData.inverted ? 'invert(1)' : 'invert(0)';
+                    }
+                });
+
+                // Apply transformations
+                element.style.left = `${x}px`;
+                element.style.top = `${y}px`;
+                element.style.transform = `scale(${scale})`;
+
+                // Update position and scale in data
+                imgData.x = x;
+                imgData.y = y;
+                imgData.scale = scale;
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+</body>
+</html>
